@@ -15,5 +15,13 @@ const navOptionClicked = function navOptionClicked(event) {
   revealDropdown(dropdown);
 };
 
+const windowClicked = function windowClicked(event) {
+  if (!event.target.matches('.option')) {
+    hideDropdowns();
+  }
+};
+
 const navBarOptions = document.querySelector('.options-container');
 navBarOptions.addEventListener('click', navOptionClicked);
+
+window.addEventListener('click', windowClicked);
