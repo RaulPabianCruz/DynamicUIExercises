@@ -1,3 +1,4 @@
+import makeTabMenu from './tabMenu';
 import './style.css';
 
 const hideDropdowns = function hideDropdowns() {
@@ -25,3 +26,6 @@ const navBarOptions = document.querySelector('.options-container');
 navBarOptions.addEventListener('click', navOptionClicked);
 
 window.addEventListener('click', windowClicked);
+
+const content = document.querySelector('.main-content');
+content.appendChild(makeTabMenu());

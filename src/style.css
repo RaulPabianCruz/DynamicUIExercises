@@ -24,6 +24,7 @@ time, mark, audio, video {
     --fontstack: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --navBarBlue: #0369a1;
     --navBarBluer: #075985;
+    --lightBlue: #06b6d4;
 }
 
 body {
@@ -31,11 +32,19 @@ body {
     font-family: var(--fontstack);
 }
 
+.main-content {
+    height: 110%;
+    display: grid;
+    grid-template-rows: 100px 1fr 74px;
+}
+
+/* Dropdown Styling **/
 .nav-bar {
     background-color: var(--navBarBlue);
     display: grid;
     grid-template-rows: 100px;
     grid-template-columns: 1fr 3fr;
+    grid-row: 1;
 }
 
 .title-container {
@@ -92,3 +101,29 @@ body {
     visibility: visible;
 }
 
+/* Mobile Menu Styling **/
+
+.tab-menu {
+    background-color: var(--navBarBlue);
+    position: sticky;
+    bottom: 0px;
+    display: flex;
+    grid-row: 3;
+}
+
+.tab-container {
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 0;
+}
+
+.tab-container:hover {
+    background-color: var(--navBarBluer);
+}
+
+.tab-icon {
+    height: 30px;
+    width: 30px;
+}
