@@ -1,26 +1,12 @@
+import { navOptionClicked, windowClicked } from './dropdown';
 import makeTabMenu from './tabMenu';
+import {
+  setInitialImage,
+  nextImage,
+  previousImage,
+  setChosenImage,
+} from './imageSlider';
 import './style.css';
-
-const hideDropdowns = function hideDropdowns() {
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach((drop) => drop.classList.remove('revealed'));
-};
-
-const revealDropdown = function revealDropdown(dropdownElem) {
-  dropdownElem.classList.add('revealed');
-};
-
-const navOptionClicked = function navOptionClicked(event) {
-  hideDropdowns();
-  const dropdown = event.target.querySelector('.dropdown');
-  revealDropdown(dropdown);
-};
-
-const windowClicked = function windowClicked(event) {
-  if (!event.target.matches('.option')) {
-    hideDropdowns();
-  }
-};
 
 const navBarOptions = document.querySelector('.options-container');
 navBarOptions.addEventListener('click', navOptionClicked);
@@ -29,3 +15,22 @@ window.addEventListener('click', windowClicked);
 
 const content = document.querySelector('.main-content');
 content.appendChild(makeTabMenu());
+
+setInitialImage();
+
+const prevBttn = document.querySelector('.previous-bttn');
+prevBttn.addEventListener('click', previousImage);
+
+const nextBttn = document.querySelector('.next-bttn');
+nextBttn.addEventListener('click', nextImage);
+
+function navDotClicked(event) {
+  const dot = event.target;
+  const index = Number(dot.getAttribute('data-index'));
+  setChosenImage(index);
+}
+
+const dotsContainer = document.querySelector('.nav-dots-container');
+dotsContainer.addEventListener('click', navDotClicked);
+
+setInterval(nextImage, 5000);
