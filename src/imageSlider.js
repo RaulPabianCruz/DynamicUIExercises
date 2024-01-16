@@ -90,10 +90,4 @@ function setChosenImage(index) {
   updateImageContainer();
 }
 
-export {
-  setInitialImage,
-  makeSliderBttns,
-  nextImage,
-  previousImage,
-  setChosenImage,
-};
+export { setInitialImage, nextImage, previousImage, setChosenImage };
